@@ -1,0 +1,2 @@
+# GoodShopCore
+Good Shop Core
