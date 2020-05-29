@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Store_Core_Web_Exam.Models.Good>
+@{
+    ViewData["Title"] = "Каталог товаров";
+}
+
+<html>
+<head>
+    <title>Магазин товаров</title>
+</head>
+<body>
+    <h3>Товары</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th scope="col">Модель</th>
+                <th scope="col">Компания</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Категория</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var good in Model)
+            {
+                <tr>
+
+                    <td> @good.Title </td>
+                    <td> @good.Company </td>
+                    <td> @good.Price </td>
+                    <td> @good.Category.CategoryName </td>
+                    <td>
+                        <img src="@Url.Content(good.Path)" style="width:100px;height:100px" />
+                    </td>
+                    <td> <a href="~/Home/Details/@good.Id" class="badge badge-primary">Детали</a></td>
+                    <td> <a href="~/Good/Update/@good.Id" class="badge badge-primary">Обновить</a></td>
+                    <td> <a href="~/Good/Delete/@good.Id" class="badge badge-primary">Удалить</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>
+        <a href="~/Good/Create" class="badge badge-primary">Создать</a>
+    </p>
+</body>
+</html>
+
+

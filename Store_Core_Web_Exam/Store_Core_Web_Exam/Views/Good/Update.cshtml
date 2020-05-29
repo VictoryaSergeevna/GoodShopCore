@@ -1,0 +1,53 @@
+﻿@model Store_Core_Web_Exam.Models.GoodViewModel
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Редактировать</h1>
+
+<h4>Товар</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.good.Id" />
+            <input type="hidden" asp-for="@Model.good.FileName" />
+            <input type="hidden" asp-for="@Model.good.Path" />
+            <img src="@Url.Content(Model.good.Path)" class="mr-3" alt="Нет изображения" style="width:200px;height:200px">
+            <div class="form-group">
+                <input type="file" name="UploadedFile" value="Выбрать" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.good.Title" class="control-label"></label>
+                <input asp-for="@Model.good.Title" class="form-control" />
+                <span asp-validation-for="@Model.good.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.good.Company" class="control-label"></label>
+                <input asp-for="@Model.good.Company" class="form-control" />
+                <span asp-validation-for="@Model.good.Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.good.Price" class="control-label"></label>
+                <input asp-for="@Model.good.Price" class="form-control" />
+                <span asp-validation-for="@Model.good.Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.good.CategoryId" class="control-label">Выберите файл</label>
+                <select asp-for="@Model.good.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-success" />
+            </div>
+        </form>
+        <div>
+            @*<a asp-action="Index">Назад</a>*@
+            <a href="~/Good/Index" class="badge badge-primary">Назад</a>
+        </div>
+    </div>
+</div>
+

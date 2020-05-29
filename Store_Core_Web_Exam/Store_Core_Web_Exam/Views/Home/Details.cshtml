@@ -1,0 +1,41 @@
+﻿@using Store_Core_Web_Exam.Models
+@model Good
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<html>
+<head>
+    <title>Магазин товаров</title>
+</head>
+<body>
+    <div>
+        <h3>@Model.Title</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Модель</dt>
+            <dt><img src="@Url.Content(Model.Path)" class="mr-3" alt="Нет изображения" style="width:200px;height:200px"></dt>
+            <dd>
+                @Model.Title
+            </dd>
+            <dt>Компания</dt>
+            <dd>
+                @Model.Company
+            </dd>
+            <dt>Цена</dt>
+            <dd>@Model.Price</dd>
+            <dt>Категория</dt>
+            <dd>@Model.Category.CategoryName</dd>          
+            <dt><a href="~/Home/Buy/@Model.Id" class="badge badge-success"> Купить </a></dt>
+
+        </dl>
+    </div>
+    <div>
+        <p>
+            <a asp-action="Index" class="badge badge-primary">Назад</a>
+        </p>
+    </div>
+</body>
+</html>

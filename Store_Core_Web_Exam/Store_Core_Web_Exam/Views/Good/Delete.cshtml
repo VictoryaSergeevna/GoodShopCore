@@ -1,0 +1,58 @@
+﻿@using Store_Core_Web_Exam.Models
+@model Good
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<html>
+<head>
+    <title>Магазин товаров</title>
+</head>
+<body>
+    <h2>Удаление товара</h2>
+
+    <h3>Вы действительно хотите удалить товар?</h3>   
+        <h3>Товар</h3>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Delete" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*<input type="hidden" asp-for="@Model.Id" />*@
+                    <img src="@Url.Content(Model.Path)" class="mr-3" alt="Нет изображения" style="width:200px;height:200px">
+                    <div class="form-group">
+                        <label asp-for="@Model.Title" class="control-label"></label>
+                        <input asp-for="@Model.Title" class="form-control" />
+                        <span asp-validation-for="@Model.Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Company" class="control-label"></label>
+                        <input asp-for="@Model.Company" class="form-control" />
+                        <span asp-validation-for="@Model.Company" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Price" class="control-label"></label>
+                        <input asp-for="@Model.Price" class="form-control" />
+                        <span asp-validation-for="@Model.Price" class="text-danger"></span>
+                    </div>
+
+                    @*<div class="form-group">
+                        <label asp-for="@Model.CategoryId" class="control-label">Выберите файл</label>
+                        <select asp-for="@Model.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                    </div>*@
+
+                    <div class="form-group">
+                        <input type="submit" value="Удалить" class="btn btn-success" />
+                    </div>
+                </form>
+                <div>
+                   
+                    <a href="~/Good/Index" class="badge badge-primary">Назад</a>
+                </div>
+            </div>
+        </div>       
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@model Store_Core_Web_Exam.Models.GoodViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создать</h1>
+
+<h4>Товар</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="good.Title" class="control-label"></label>
+                <input asp-for="good.Title" class="form-control" />
+                <span asp-validation-for="good.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="good.Company" class="control-label"></label>
+                <input asp-for="good.Company" class="form-control" />
+                <span asp-validation-for="good.Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="good.Price" class="control-label"></label>
+                <input asp-for="good.Price" class="form-control" />
+                <span asp-validation-for="good.Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="good.CategoryId" class="control-label">Выберите файл</label>
+                <select asp-for="good.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group">
+                <input type="file" name="UploadedFile" value="Выбрать" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-success" />
+            </div>
+        </form>
+        <div>
+            @*<a asp-action="Index">Назад</a>*@
+            <a href="~/Good/Index" class="badge badge-primary">Назад</a>
+        </div>
+    </div>
+</div>
